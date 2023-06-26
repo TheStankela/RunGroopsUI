@@ -1,0 +1,23 @@
+.topDiv {
+    box-sizing:border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+#slider {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+}
+
+.slide-left {
+    animation: slide-left 0.9s forwards;
+    -webkit-animation: slide-left 0.9s forwards;
+}
+
+@keyframes slide-left {
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-left {
+    100% { -webkit-transform: translateX(0%); }
+}
