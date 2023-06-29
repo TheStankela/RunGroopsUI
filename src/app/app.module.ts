@@ -7,9 +7,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarModule, } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
 import { GridModule } from '@coreui/angular';
-import { MainComponent } from './main/main.component';
-import { HeroComponent } from './hero/hero.component';
-import { PlanetComponent } from './planet/planet.component';
+import { MainComponent } from './index/main/main.component';
+import { HeroComponent } from './index/hero/hero.component';
+import { PlanetComponent } from './index/planet/planet.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { PlanetComponent } from './planet/planet.component';
     NavbarComponent,
     MainComponent,
     HeroComponent,
-    PlanetComponent
+    PlanetComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
