@@ -12,6 +12,8 @@ import { HeroComponent } from './index/hero/hero.component';
 import { PlanetComponent } from './index/planet/planet.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { HttpClientModule } from  '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,16 @@ import { RegisterComponent } from './auth/register/register.component';
     HeroComponent,
     PlanetComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NavbarModule,
     IconModule,
-    GridModule  ],
+    GridModule,
+    HttpClientModule,
+    FormsModule,  ],
   providers: [],
   bootstrap: [AppComponent]
 })
