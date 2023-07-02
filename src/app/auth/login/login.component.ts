@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -6,6 +9,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+
+  constructor(private authService: AuthService, private router: Router){
+
+  }
+
+  handleLogin(info: any){
+    this.authService.login(info)
+    .subscribe({
+      next: (res: any) => {
+         alert(res.message);
+         this.router.navigate(['/'])
+        },
+      error: (err: any) =>{
+        alert(err?.error.message)
+      }
+    });
+  }
   tailwindConfig = {
     darkMode: 'class',
     theme: {
