@@ -1,0 +1,36 @@
+<div class="bg-black rounded top-[120px] max-w-7xl mx-auto flex flex-row gap-5">
+    <div class="max-w-2xl ">
+        <div class="flex justify-content-around flex-row flex-wrap gap-y-10 gap-x-6">
+                <h1 class="text-2xl font-bold tracking-tight text-white">Featured <span class="text-success">Running Clubs</span></h1>
+                <form>
+                    <input type="text" name="text" placeholder="Search..." class="py-1 pl-3 pr-4 text-gray-900 rounded bg-transparent focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-sky-500"/>
+                </form>
+        </div>
+      <div  class="mt-6 grid grid-cols-1 gap-x-6  sm:grid-cols-1 lg:grid-cols-1 xl:gap-x-8">
+        <div class="group relative flex flex-row items-start gap-5 border-green-900 border-t-2 py-4" *ngFor="let club of clubs">
+          <div class="w-[150px] h-[150px] overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 justify-start">
+            <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+          </div>
+          <div class="mt-4 flex justify-center align-content-center">
+            <div>
+              <h3 class="text-sm text-light">
+                <h1 class="text-light font-bold text-lg">
+                  <span aria-hidden="true" class="absolute inset-0"></span>
+                  {{club.name}}
+                </h1>
+              </h3>
+              <p class="mt-1 text-md font-semibold">{{club.address.city}}, {{club.address.country}} ({{club.address.zip}})</p>
+              <p class="mt-3 text-md font-md font-semibold text-green-900">{{club.clubCategory}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="pt-2 flex justify-center">
+            <a type="button" class="btn btn-sm btn-outline-success" (click)="prevPage();">Prev</a>
+            <span class="ms-3 text-muted text-small">Page {{pageNumber + 1}}</span>
+            <a type="button" class="btn btn-sm btn-outline-success ms-3" (click)="nextPage();">Next</a>
+        </div>
+        <!-- More products... -->
+      </div>
+    </div>
+  </div>
+  
