@@ -20,8 +20,6 @@ export class ClubsComponent implements OnInit{
   
   pageNumber: number = 0;
 
-
-
   getClubs(page: number){
     if(page < 0){return;}
       
@@ -35,6 +33,16 @@ export class ClubsComponent implements OnInit{
         err => {
           console.log(err)
         }
+    })
+  }
+
+  searchByName(name: any){
+    this.clubs = [];
+    return this.clubService.getClubByName(name.name).subscribe({
+      next: 
+        res => {
+          this.clubs.push(res);
+      }
     })
   }
 
