@@ -1,11 +1,12 @@
 <section  class="w-75 mx-auto py-12 flex flex-col xl:mt-12 lg:mt-12">
   <div class="bg-black rounded top-[120px] max-w-2xl mx-auto flex flex-row">
     <div class="max-w-2xl">
-        <div class="flex justify-content-around flex-row flex-wrap gap-y-10 gap-x-6">
+        <div class="flex justify-content-around flex-row flex-wrap gap-y-10 gap-x-3 lg:gap-x-6">
                 <h1 class="text-2xl font-bold tracking-tight text-white">Featured <span class="text-success">Running Clubs</span></h1>
                 <form (ngSubmit)="searchByName(searchForm.value)" #searchForm="ngForm">
-                    <input type="text" ngModel name="name" placeholder="Search by name..." class="py-1 pl-3 pr-4 text-white rounded bg-transparent focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-sky-500"/>
+                    <input type="text" ngModel name="name" placeholder="Search by name..." class="py-1 pl-3 text-white rounded bg-transparent focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-sky-500"/>
                 </form>
+                <a class="btn btn-outline-success text-white py-1" [routerLink]="['/clubs/create']" >Start a Club</a>
         </div>
       <div *ngIf="clubs.length" class="mt-6 grid grid-cols-1 gap-x-6  sm:grid-cols-1 lg:grid-cols-1 xl:gap-x-8" >
        
@@ -15,14 +16,14 @@
           </div>
           <div class="mt-4 flex justify-center align-content-center">
             <div>
-              <h3 class="text-sm text-light">
-                <h1 class="text-light font-bold text-lg">
+              <h3 class="text-sm md:text-lg text-light">
+                <h1 class="text-light font-bold text-sm md:text-lg">
                   <span aria-hidden="true" class="absolute inset-0"></span>
                   {{club.name}}
                 </h1>
               </h3>
-              <p class="mt-1 text-md font-semibold">{{club.address.city}}, {{club.address.country}} ({{club.address.zip}})</p>
-              <p class="mt-3 text-md font-md font-semibold text-green-900">{{club.clubCategory}}</p>
+              <p class="mt-1 text-sm md:text-md font-semibold">{{club.address.city}}, {{club.address.country}}</p>
+              <p class="mt-3 text-sm md:text-md font-semibold text-green-900">{{club.clubCategory}}</p>
             </div>
           </div>
         </div>

@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { Observable } from 'rxjs';
 import { Club } from 'src/app/models/club';
 import { ClubService } from 'src/app/services/club.service';
 
