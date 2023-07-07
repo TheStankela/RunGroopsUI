@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClubSingleComponent } from './club-single.component';
+import ClubSingleComponent from './club-single.component';
 
 describe('ClubSingleComponent', () => {
   let component: ClubSingleComponent;

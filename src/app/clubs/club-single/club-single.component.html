@@ -1,129 +1,138 @@
-<section class="py-5">
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="row gx-4 gx-lg-5 align-items-center">
-            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
-            <div class="col-md-6">
-                <div class="small mb-1">SKU: BST-498</div>
-                <h1 class="display-5 fw-bolder">Shop item template</h1>
-                <div class="fs-5 mb-5">
-                    <span class="text-decoration-line-through">$45.00</span>
-                    <span>$40.00</span>
-                </div>
-                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
-                <div class="d-flex">
-                    <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                    <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                        <i class="bi-cart-fill me-1"></i>
-                        Add to cart
-                    </button>
-                </div>
-            </div>
+<section class="bg-black ">
+    <div class="container w-75 pt-12">
+      <div class="row">
+        <div class="col-lg-7 mb-4 mb-sm-0">
+            <img alt="Image" src="{{club.imageURL}}" class="rounded img-fluid" />
         </div>
-    </div>
-</section>
-<!-- Related items section-->
-<section class="py-5 bg-light">
-    <div class="container px-4 px-lg-5 mt-5">
-        <h2 class="fw-bolder mb-4">Related products</h2>
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <div class="col mb-5">
-                <div class="card h-100">
-                    <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <h5 class="fw-bolder">Fancy Product</h5>
-                            <!-- Product price-->
-                            $40.00 - $80.00
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-                    </div>
-                </div>
+        <!--end of col-->
+        <div class="col-lg-4 d-flex flex-column justify-content-between mx-auto">
+          <div>
+            <h1 class="text-gray-300 text-lg font-bold mb-2">{{club.name}}</h1>
+            <h2 class="text-gray-500 text-md font-medium mb-3">{{club.address.city}}, {{club.address.country}}</h2>
+            <div>
+              <span class="badge bg-gray-700 text-gray-300 me-3">{{club.clubCategory}}</span>
             </div>
-            <div class="col mb-5">
-                <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <h5 class="fw-bolder">Special Item</h5>
-                            <!-- Product reviews-->
-                            <div class="d-flex justify-content-center small text-warning mb-2">
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                            </div>
-                            <!-- Product price-->
-                            <span class="text-muted text-decoration-line-through">$20.00</span>
-                            $18.00
-                        </div>
+            <div class="col-12 py-12">
+          <!-- end card -->
+                  <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                      <div><i class="icon-text-document mr-1"></i> Created</div>
+                      <span>1/13/2022</span>
                     </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                    </div>
+                  </li>
+
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <div><i class="icon-edit mr-1"></i> Last updated</div>
+                  <span>23/06/2023</span>
                 </div>
-            </div>
-            <div class="col mb-5">
-                <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <h5 class="fw-bolder">Sale Item</h5>
-                            <!-- Product price-->
-                            <span class="text-muted text-decoration-line-through">$50.00</span>
-                            $25.00
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                    </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <div><i class="icon-thumbs-up mr-1"></i> Owner</div>
+                  <span>Mictostrasto</span>
                 </div>
-            </div>
-            <div class="col mb-5">
-                <div class="card h-100">
-                    <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <h5 class="fw-bolder">Popular Item</h5>
-                            <!-- Product reviews-->
-                            <div class="d-flex justify-content-center small text-warning mb-2">
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                            </div>
-                            <!-- Product price-->
-                            $40.00
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                    </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <div><i class="icon-share mr-1"></i> Shares</div>
+                  <span>52</span>
                 </div>
-            </div>
+              </li>
+            
+          <!-- end card -->
+          <!-- end card -->
         </div>
+          </div>
+          <div class="pt-3">
+            <div class="btn-group mb-2">
+              <form method="post" action="/Club/JoinClub">
+                <input type="number" hidden data-val="true" data-val-required="The Id field is required." id="Id" name="Id" value="152" />
+                    <button type="submit" class="btn btn-outline-success btn-lg">Join Club</button>
+                    <input type="checkbox" hidden data-val="true" data-val-required="The IsJoined field is required." id="IsJoined" name="IsJoined" value="true" />
+              <input name="__RequestVerificationToken" type="hidden" value="CfDJ8D2tSLuBrp9InlTQ68ocoLu3A9Onc_k2NPLNDVEi6BmevAINSnraPKY5Lya1fkEyIWy_51prnhU6gbNZ0q_Ue4QXi2ndpr_1S7c1pDe11zeLrPg2DjrwciVte5Sbkxl9rFGNuVo6N6wiZVXbDwDZfH6pNihXPZ8TNIK2CFYr0_GEaFW--oGYF0cdTJOhSxW2UA" /><input name="IsJoined" type="hidden" value="false" /></form>
+              
+             
+            </div>
+          </div>
+        </div>
+        <!--end of col-->
+      </div>
+      <!--end of row-->
     </div>
-</section>
+    <!--end of container-->
+  </section>
+
+  <section class="space-sm">
+    <div class="container  w-75 py-8">
+      <div class="row justify-content-between">
+        <div class="col-12 col-md-8 col-lg-7 bg-gray-900 rounded pt-3">
+          <h5 class="mb-4 text-lg text-gray-300 font-bold">Overview</h5>
+          <article id="description">
+            <p class="text-gray-500 font-medium">{{club.description}}</p>          
+          </article>
+          <hr class="pt-4"/>
+          <h5 class="mb-4 text-gray-300 font-bold">Discussion</h5>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+                               <button
+                                class="btn btn-success"
+                                data-target="#comment-reply"
+                                data-toggle="collapse"
+                                aria-expanded="false"
+                                aria-controls="comment-reply"
+                              >
+                                Comment
+                                </button>
+            <form class="d-flex align-items-center">
+                <span class="mr-2 text-muted text-small text-nowrap">Sort by:</span>
+                <select class="custom-select rounded ps-1">
+                  <option value="old-new" selected>Newest</option>
+                  <option value="new-old">Popular</option>
+                </select>
+            </form>
+            </div>
+            <div class="collapse" id="comment-reply">
+              <form class="card-body" onsubmit="submitComment(event);">
+                <div class="form-group">
+                  <textarea
+                    class="form-control from-control-lg"
+                    id="comment-text"
+                    rows="4"
+                    placeholder="Type your comment here"
+                  ></textarea>
+                </div>
+                <div class="mb-2">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="notify-reply" id="check-notify" />
+                    <label class="custom-control-label text-small" for="check-notify"
+                      >Notify me when someone replies</label
+                    >
+                  </div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <button type="submit" class="btn btn-success mr-3">Submit comment</button>
+                  <a
+                    href="#comment-reply"
+                    class="text-small text-muted"
+                    data-toggle="collapse"
+                    aria-expanded="true"
+                    aria-controls="comment-reply"
+                    >Cancel</a
+                  >
+                </div>
+              </form>
+            </div>
+            <ul class="list-group list-group-flush list-group-comments">
+    
+            </ul>
+          </div>
+        </div>
+        <!--end of col-->
+        
+        <!--end of col-->
+      </div>
+      <!--end of row-->
+    </div>
+    <!--end of container-->
+  </section>
