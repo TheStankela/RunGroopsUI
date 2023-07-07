@@ -18,11 +18,11 @@ export class LoginComponent {
     this.authService.login(info)
     .subscribe({
       next: (res: any) => {
-         alert(res.message);
+         alert('Login successful!');
          this.router.navigate(['/'])
         },
       error: (err: any) =>{
-        alert(err?.error.message)
+        alert('Login failed.');
       }
     });
   }
