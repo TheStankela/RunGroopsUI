@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +10,35 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
 
   baseURL = environment.apiURL;
+  helper = new JwtHelperService();
   constructor(private httpClient: HttpClient) { }
 
   login(loginInfo: any) : any{
-    return this.httpClient.post<any>(this.baseURL + '/account/login', loginInfo, {withCredentials: true})
+    return this.httpClient.post(this.baseURL + '/account/login', loginInfo).pipe(
+      map((response: any) => {
+        localStorage.setItem('token', response.token);
+      })
+    )
   }
   register(loginInfo: any) : any{
     return this.httpClient.post<any>(this.baseURL + '/account/register', loginInfo, {withCredentials: true})
   }
   logout() : any{
-    return this.httpClient.post<any>(this.baseURL + '/account/logout', {withCredentials: true})
+    localStorage.removeItem('token');
+    alert('Logout successful!')
   }
+
+  loggedIn(): boolean {
+    const token = localStorage.getItem('token');
+    return !this.helper.isTokenExpired(token);
+  }
+  // getHttpOptions() {
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({
+  //       Authorization: 'Bearer ' + localStorage.getItem('token'),
+  //     }),
+  //   };
+
+  //   return httpOptions;
+  // }
 }
