@@ -15,11 +15,12 @@ export class RegisterComponent {
   handleRegister(info: any){
     this.authService.register(info).subscribe({
       next: (res: any) => {
-        alert(res.message);
+        alert('Registration successful!');
+
         this.router.navigate(['/auth/login']);
       },
       error: (err: any) => {
-        alert(err?.error.message);
+        alert(err?.error.errors[0].description);
       }
     })
   }
