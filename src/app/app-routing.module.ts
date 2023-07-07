@@ -5,6 +5,7 @@ import { MainComponent } from './index/main/main.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ClubsComponent } from './clubs/clubs/clubs.component';
 import { ClubDetailsComponent } from './clubs/club-details/club-details.component';
+import ClubSingleComponent from './clubs/club-single/club-single.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent},
@@ -12,6 +13,8 @@ const routes: Routes = [
   { path: 'auth/register', component: RegisterComponent},
   {path: 'clubs', component:ClubsComponent},
   {path:'clubs/create', component: ClubDetailsComponent},
+  {path:'clubs/:id', component: ClubSingleComponent},
+
 ];
 
 @NgModule({

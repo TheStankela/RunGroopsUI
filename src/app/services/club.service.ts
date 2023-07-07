@@ -19,5 +19,8 @@ export class ClubService {
    getClubByName(clubName: string){
     return this.httpClient.get<Club>(this.baseURL + '/club/name=' + clubName);
    }
+   getClubById(id: number){
+    return this.httpClient.get<Club>(this.baseURL + '/club/' + id);
+   }
   
 }

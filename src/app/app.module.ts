@@ -15,7 +15,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { HttpClientModule } from  '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ClubsComponent } from './clubs/clubs/clubs.component';
-import { ClubSingleComponent } from './clubs/club-single/club-single.component';
+import ClubSingleComponent from './clubs/club-single/club-single.component';
 import { ClubDetailsComponent } from './clubs/club-details/club-details.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
