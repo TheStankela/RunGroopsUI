@@ -1,9 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CreateAddress } from 'src/app/models/createAddress';
 import { CreateClub } from 'src/app/models/createClub';
 import { AuthService } from 'src/app/services/auth.service';
+import { ClubService } from 'src/app/services/club.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -16,25 +18,40 @@ export class ClubDetailsComponent implements OnInit{
   @Input()
   club = new CreateClub();
   
+  selectedFile!: File;
   baseUrl = environment.apiURL;
 
-  constructor(private httpClient: HttpClient, private authService: AuthService, private router: Router){
+  constructor(private clubService: ClubService, private authService: AuthService, private router: Router, private toastrService: ToastrService){
     this.club.address = new CreateAddress();
   }
 
   ngOnInit(): void {
     if(!this.authService.loggedIn()){
-      alert("Login to create new club.");
+      this.toastrService.warning("You must be logged in to create new clubs.");
       this.router.navigate(['auth/login']);
     }
   }
 
+  onFileSelected(event : any){
+    this.selectedFile = <File>event.target.files[0];
+  }
   handleCreate(){
-    this.httpClient.post<any>(this.baseUrl + '/Club', this.club, {withCredentials: true}).subscribe({
-      next: res => {
-        console.log(res);
+    const fd =new FormData();
+    fd.append('file', this.selectedFile, this.selectedFile.name);
+    fd.append('name', this.club.name);
+    fd.append('description', this.club.description);
+    fd.append('clubCategory', this.club.clubCategory.toString());
+    fd.append('address.country', this.club.address.country);
+    fd.append('address.city', this.club.address.city);
+    fd.append('address.street', this.club.address.street);
+    fd.append('address.zip', this.club.address.zip.toString());
+    this.clubService.createClub(fd).subscribe({
+      next: (res) => {
+        this.toastrService.success("Club created successfully!");
+        this.router.navigate(['/']);
       },
-      error: err => {
+      error: (err) => {
+        this.toastrService.error("Something went wrong.");
         console.log(err);
       }
     })
