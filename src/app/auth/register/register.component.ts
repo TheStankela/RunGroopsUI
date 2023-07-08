@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,18 +10,17 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent {
   
-  constructor(private authService: AuthService, private router: Router){
+  constructor(private authService: AuthService, private router: Router, private toastrService: ToastrService){
 
   }
   handleRegister(info: any){
     this.authService.register(info).subscribe({
       next: (res: any) => {
-        alert('Registration successful!');
-
+        this.toastrService.success("Welcome to RunGroops!","Registration successful");
         this.router.navigate(['/auth/login']);
       },
       error: (err: any) => {
-        alert(err?.error.errors[0].description);
+        this.toastrService.error(err?.error.errors[0].description, "Registration failed");
       }
     })
   }

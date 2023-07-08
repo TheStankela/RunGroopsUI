@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
 
@@ -10,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent {
 
-  constructor(private authService: AuthService, private router: Router){
+  constructor(private authService: AuthService, private router: Router, private toastrService: ToastrService){
 
   }
 
@@ -18,14 +19,16 @@ export class LoginComponent {
     this.authService.login(info)
     .subscribe({
       next: (res: any) => {
-         alert('Login successful!');
+        this.toastrService.success('Welcome back!', 'Login successful!');
          this.router.navigate(['/'])
         },
       error: (err: any) =>{
-        alert('Login failed.');
+        this.toastrService.error('Invalid credentials.', 'Login falied!');
+
       }
     });
   }
+
   tailwindConfig = {
     darkMode: 'class',
     theme: {
