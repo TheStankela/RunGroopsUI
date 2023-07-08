@@ -6,5 +6,6 @@ export class Club {
      description!: string;
      imageURL!: string;
      address!: Address;
+     appUserId!: Address;
      clubCategory!: string;
 }

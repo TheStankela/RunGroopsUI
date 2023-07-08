@@ -25,20 +25,19 @@ export class AuthService {
   }
   logout() : any{
     localStorage.removeItem('token');
-    alert('Logout successful!')
   }
 
   loggedIn(): boolean {
     const token = localStorage.getItem('token');
     return !this.helper.isTokenExpired(token);
   }
-  // getHttpOptions() {
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       Authorization: 'Bearer ' + localStorage.getItem('token'),
-  //     }),
-  //   };
+  getHttpOptions() {
+ const httpOptions = {
+     headers: new HttpHeaders({
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
 
-  //   return httpOptions;
-  // }
+    return httpOptions;
+  }
 }

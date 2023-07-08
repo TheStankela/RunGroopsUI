@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -21,6 +21,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     NavbarModule,
     IconModule,
     GridModule,
@@ -47,6 +52,18 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   MatCardModule,
   MatIconModule,
   MatPaginatorModule,
+  NgxUiLoaderModule,
+  NgxUiLoaderHttpModule.forRoot(
+    {
+      showForeground: true
+    }
+  ),
+  ToastrModule.forRoot({
+    timeOut: 3000,
+    positionClass: 'toast-bottom-right',
+    preventDuplicates: true,
+    progressBar: true
+  })
   ],
   providers: [],
   bootstrap: [AppComponent]
