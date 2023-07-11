@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Address } from 'src/app/models/address';
 import { Club } from 'src/app/models/club';
 import { ClubService } from 'src/app/services/club.service';
 
@@ -13,8 +14,8 @@ export default class ClubSingleComponent implements OnInit{
   @Output()
   club: Club = new Club();
 
-  constructor(private route: ActivatedRoute, private clubService: ClubService) {
-    
+  constructor(private route: ActivatedRoute, private clubService: ClubService, private router: Router) {
+    this.club.address = new Address();
   }
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get('id');
@@ -23,7 +24,8 @@ export default class ClubSingleComponent implements OnInit{
       let parsedId = parseInt(id);
       this.clubService.getClubById(parsedId).subscribe({
         next: (res) => this.club = res,
-        error: (err) => console.log(err)
+        error: (err) => 
+        this.router.navigate(['/'])
       })
     }
   }
