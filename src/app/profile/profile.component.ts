@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ClubService } from '../services/club.service';
 import { Club } from '../models/club';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -11,9 +13,12 @@ import { ToastrService } from 'ngx-toastr';
 export class ProfileComponent implements OnInit{
   userClubs: Club[] = [];
 
-  constructor(private clubService: ClubService, private toastrService: ToastrService){
+  constructor(private clubService: ClubService, private toastrService: ToastrService, private authService: AuthService, private router: Router){
   }
   ngOnInit(): void {
+    if(!this.authService.loggedIn()){
+      this.router.navigate(['auth/login'])
+    }
     this.getClubs();
   }
   displayedColumns: string[] = ['id', 'name', 'clubCategory', 'action'];
