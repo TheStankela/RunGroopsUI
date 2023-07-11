@@ -16,7 +16,7 @@ import { HttpClientModule } from  '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ClubsComponent } from './clubs/clubs/clubs.component';
 import ClubSingleComponent from './clubs/club-single/club-single.component';
-import { ClubDetailsComponent } from './clubs/club-details/club-details.component';
+import { CreateClubComponent } from './clubs/create-club/create-club.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
@@ -24,6 +24,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileComponent } from './profile/profile.component';
+import { UpdateClubComponent } from './clubs/update-club/update-club.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegisterComponent,
     ClubsComponent,
     ClubSingleComponent,
-    ClubDetailsComponent,
+    CreateClubComponent,
+    ProfileComponent,
+    UpdateClubComponent,
   ],
   imports: [
     BrowserModule,
