@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class AuthService {
 
   baseURL = environment.apiURL;
   helper = new JwtHelperService();
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   login(loginInfo: any) : any{
     return this.httpClient.post(this.baseURL + '/account/login', loginInfo).pipe(
@@ -25,6 +26,7 @@ export class AuthService {
   }
   logout() : any{
     localStorage.removeItem('token');
+    this.router.navigate(['/']);
   }
 
   loggedIn(): boolean {
@@ -37,7 +39,6 @@ export class AuthService {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       }),
     };
-
     return httpOptions;
   }
 }
