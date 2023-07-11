@@ -17,13 +17,22 @@ export class ClubService {
    getClubs(page: number){
     return this.httpClient.get<Club[]>(this.baseURL + '/club?page=' + page);
    }
+   getUserClubs(){
+    return this.httpClient.get<Club[]>(this.baseURL + '/club/user', this.authService.getHttpOptions());
+   }
    getClubByName(clubName: string){
     return this.httpClient.get<Club>(this.baseURL + '/club/name=' + clubName);
    }
    getClubById(id: number){
     return this.httpClient.get<Club>(this.baseURL + '/club/' + id);
    }
-   createClub(file: any){
-    return this.httpClient.post<any>(this.baseURL + '/club',file, this.authService.getHttpOptions());
+   createClub(body: any){
+    return this.httpClient.post<any>(this.baseURL + '/club',body, this.authService.getHttpOptions());
+   }
+   updateClub(body: any, id: number){
+    return this.httpClient.put<any>(this.baseURL + '/club?clubId=' + id, body, this.authService.getHttpOptions());
+   }
+   deleteClub(clubId: number){
+    return this.httpClient.delete<any>(this.baseURL + '/club?clubId=' + clubId, this.authService.getHttpOptions());
    }
 }
