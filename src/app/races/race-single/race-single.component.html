@@ -1,0 +1,135 @@
+<section class="bg-black ">
+    <div class="container w-75 pt-12">
+      <div class="row">
+        <div class="col-lg-7 mb-4 mb-sm-0">
+            <img alt="Image" src="{{race.imageURL}}" class="rounded img-fluid" />
+        </div>
+        <!--end of col-->
+        <div class="col-lg-4 d-flex flex-column justify-content-between mx-auto">
+          <div>
+            <h1 class="text-gray-300 text-lg font-bold mb-2">{{race.name}}</h1>
+            <h2 class="text-gray-500 text-md font-medium mb-3">{{race.address.city}}, {{race.address.country}}</h2>
+            <div>
+              <span class="badge bg-gray-700 text-gray-300 me-3">{{race.raceCategory}}</span>
+            </div>
+            <div class="col-12 py-12">
+          <!-- end card -->
+                  <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                      <div><i class="icon-text-document mr-1"></i> Created</div>
+                      <span>1/13/2022</span>
+                    </div>
+                  </li>
+
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <div><i class="icon-edit mr-1"></i> Last updated</div>
+                  <span>23/06/2023</span>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <div><i class="icon-thumbs-up mr-1"></i> Owner</div>
+                  <span>Mictostrasto</span>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                  <div><i class="icon-share mr-1"></i> Shares</div>
+                  <span>52</span>
+                </div>
+              </li>
+            
+          <!-- end card -->
+          <!-- end card -->
+        </div>
+          </div>
+          <div class="pt-3">
+            <div class="btn-group mb-2">
+              <form>
+                <input type="number" hidden data-val="true" data-val-required="The Id field is required." id="Id" name="Id" value="152" />
+                    <button type="submit" class="btn btn-outline-success ">Participate</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--end of col-->
+      </div>
+      <!--end of row-->
+    </div>
+    <!--end of container-->
+  </section>
+
+  <section class="space-sm">
+    <div class="container  w-75 py-8">
+      <div class="row justify-content-between">
+        <div class="col-12 col-md-8 col-lg-7 bg-gray-900 rounded pt-3">
+          <h5 class="mb-4 text-lg text-gray-300 font-bold">Overview</h5>
+          <article id="description">
+            <p class="text-gray-500 font-medium">{{race.description}}</p>          
+          </article>
+          <hr class="pt-4"/>
+          <h5 class="mb-4 text-gray-300 font-bold">Discussion</h5>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+                               <button
+                                class="btn btn-success"
+                                data-target="#comment-reply"
+                                data-toggle="collapse"
+                                aria-expanded="false"
+                                aria-controls="comment-reply"
+                              >
+                                Comment
+                                </button>
+            <form class="d-flex align-items-center">
+                <span class="mr-2 text-muted text-small text-nowrap">Sort by:</span>
+                <select class="custom-select rounded ps-1">
+                  <option value="old-new" selected>Newest</option>
+                  <option value="new-old">Popular</option>
+                </select>
+            </form>
+            </div>
+            <div class="collapse" id="comment-reply">
+              <form class="card-body" onsubmit="submitComment(event);">
+                <div class="form-group">
+                  <textarea
+                    class="form-control from-control-lg"
+                    id="comment-text"
+                    rows="4"
+                    placeholder="Type your comment here"
+                  ></textarea>
+                </div>
+                <div class="mb-2">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="notify-reply" id="check-notify" />
+                    <label class="custom-control-label text-small" for="check-notify"
+                      >Notify me when someone replies</label
+                    >
+                  </div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <button type="submit" class="btn btn-success mr-3">Submit comment</button>
+                  <a
+                    href="#comment-reply"
+                    class="text-small text-muted"
+                    data-toggle="collapse"
+                    aria-expanded="true"
+                    aria-controls="comment-reply"
+                    >Cancel</a
+                  >
+                </div>
+              </form>
+            </div>
+            <ul class="list-group list-group-flush list-group-comments">
+    
+            </ul>
+          </div>
+        </div>
+        <!--end of col-->
+        
+        <!--end of col-->
+      </div>
+      <!--end of row-->
+    </div>
+    <!--end of container-->
+  </section>

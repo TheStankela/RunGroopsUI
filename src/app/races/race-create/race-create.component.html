@@ -1,0 +1,62 @@
+<section class="bg-black">
+    <div class="flex flex-col items-center justify-center px-6 py-12 mx-auto md:h-window">
+        <div class="w-full bg-gray-900 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0  dark:border-gray-700">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                    Start a new race!
+                </h1>
+                <form #createraceForm="ngForm"  (ngSubmit)="handleCreate()" enctype="multipart/form-data">
+                    <div class="mb-6">
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name:</label>
+                        <input type="text" name="name" id="name" [(ngModel)]="race.name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required>
+                      </div>
+
+                      <div class="mb-6">
+                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description:</label>
+                        <textarea id="description" name="description" rows="4"  [(ngModel)]="race.description" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"></textarea>
+                      </div>
+
+
+                        <div class="mb-6">
+                            <label for="race.address.country" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Country:</label>
+                            <input type="text" name="country" id="race.address.country" [(ngModel)]="race.address.country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required>
+                          </div>
+
+                          <div class="mb-6">
+                            <label for="city" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City:</label>
+                            <input type="text" name="city" id="city" [(ngModel)]="race.address.city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required>
+                          </div>
+
+
+                        <div class="mb-6">
+                            <label for="street" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Street:</label>
+                            <input type="text" id="street" name="street" [(ngModel)]="race.address.street" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required>
+                          </div>
+
+                          <div class="mb-6">
+                            <label for="zip" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Zip:</label>
+                            <input type="number" id="zip" name="zip" [(ngModel)]="race.address.zip" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required>
+                          </div>
+                    
+                    <div class="relative z-0 w-full mb-6 group">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file">Logo:</label>
+                        <input name="file" (change)="onFileSelected($event)" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="file" type="file">
+                    </div>
+
+                    <div class="relative z-0 w-full mb-6 group">
+                        <label for="raceCategory" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category:</label>
+                        <select name="raceCategory" id="raceCategory" [(ngModel)]="race.raceCategory" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
+                        <option [ngValue]=1>RoadRunner</option>
+                        <option [ngValue]=2>Womans</option>
+                        <option [ngValue]=3>City</option>
+                        <option [ngValue]=4>Trail</option>
+                        <option [ngValue]=5>Endurance</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
