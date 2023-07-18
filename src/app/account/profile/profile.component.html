@@ -1,0 +1,183 @@
+<section class="w-75 mx-auto">
+    <div class="mx-auto flex flex-col xl:flex-row gap-5 py-12 justify-between">
+
+            <!-- Card start -->
+            <div>
+                <div class="max-w-sm mx-auto bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <div class="border-b px-4 pb-6">
+                        <div class="text-center my-4">
+                            <img class="h-32 w-32 rounded-full border-4 border-white mx-auto my-4" src="https://randomuser.me/api/portraits/women/21.jpg" alt="">
+                            <div class="py-2">
+                                <h3 class="font-bold text-2xl mb-1">Cait Genevieve</h3>
+                                <div class="inline-flex text-gray-700 items-center">
+                                    <svg class="h-5 w-5 text-gray-400 mr-1" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path class=""
+                                            d="M5.64 16.36a9 9 0 1 1 12.72 0l-5.65 5.66a1 1 0 0 1-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 1 0-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                                    </svg>
+                                    New York, NY
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 px-2">
+                            <button class="flex-1 rounded-full bg-blue-600 text-white antialiased font-bold hover:bg-blue-800 px-4 py-2">Follow</button>
+                            <button class="flex-1 rounded-full border-2 border-gray-400 font-semibold text-black px-4 py-2">Message</button>
+                        </div>
+                    </div>
+                    <div class="px-4 py-4">
+                        <div class="flex gap-2 items-center text-gray-800r mb-4">
+                            <svg class="h-6 w-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" width="24" height="24">
+                                <path class=""
+                                    d="M12 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9 11a1 1 0 0 1-2 0v-2a3 3 0 0 0-3-3H8a3 3 0 0 0-3 3v2a1 1 0 0 1-2 0v-2a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v2z" />
+                            </svg>
+                            <span><strong class="text-black">12</strong> Followers you know</span>
+                        </div>
+                        <div class="flex">
+                            <div class="flex justify-end mr-2">
+                                <img class="border-2 border-white rounded-full h-10 w-10 -mr-2" src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                                <img class="border-2 border-white rounded-full h-10 w-10 -mr-2" src="https://randomuser.me/api/portraits/women/31.jpg" alt="">
+                                <img class="border-2 border-white rounded-full h-10 w-10 -mr-2" src="https://randomuser.me/api/portraits/men/33.jpg" alt="">
+                                <img class="border-2 border-white rounded-full h-10 w-10 -mr-2" src="https://randomuser.me/api/portraits/women/32.jpg" alt="">
+                                <img class="border-2 border-white rounded-full h-10 w-10 -mr-2" src="https://randomuser.me/api/portraits/men/44.jpg" alt="">
+                                <img class="border-2 border-white rounded-full h-10 w-10 -mr-2" src="https://randomuser.me/api/portraits/women/42.jpg" alt="">
+                                <span class="flex items-center justify-center bg-white text-sm text-gray-800 font-semibold border-2 border-gray-200 rounded-full h-10 w-10">+999</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card end -->
+        
+    </div>
+    
+
+
+    <div id="main" class="main-content flex-1 bg-black mt-8 md:mt-2 pb-24 md:pb-5">
+
+        <div class="bg-black pt-3">
+            <div class="rounded-tl-3xl rounded-tr-3xl bg-gradient-to-r from-green-500 to-gray-800 p-4 shadow text-2xl text-white">
+                <h1 class="font-bold pl-2">Your profile</h1>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap">
+            <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                <!--Metric Card-->
+                <div class="bg-gradient-to-b from-green-200 to-green-100 border-b-4 border-green-600 rounded-lg shadow-xl p-5">
+                    <div class="flex flex-row items-center">
+                        <div class="flex-1 text-center">
+                            <h2 class="font-bold uppercase text-gray-600">Clubs</h2>
+                           <p class="font-bold text-3xl">{{userClubs.length}} <span class="text-green-500"><i class="fas fa-caret-up"></i></span></p>
+                        </div>
+                    </div>
+                </div>
+                <!--/Metric Card-->
+            </div>
+            
+            <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                <!--Metric Card-->
+                <div class="bg-gradient-to-b from-pink-200 to-pink-100 border-b-4 border-pink-500 rounded-lg shadow-xl p-5">
+                    <div class="flex flex-row items-center">
+                        <div class="flex-1 text-center">
+                            <h2 class="font-bold uppercase text-gray-600">Races</h2>
+                            <p class="font-bold text-3xl">12 <span class="text-pink-500"><i class="fas fa-exchange-alt"></i></span></p>
+                        </div>
+                    </div>
+                </div>
+                <!--/Metric Card-->
+            </div>
+            <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                <!--Metric Card-->
+                <div class="bg-gradient-to-b from-yellow-200 to-yellow-100 border-b-4 border-yellow-600 rounded-lg shadow-xl p-5">
+                    <div class="flex flex-row items-center">
+                        <div class="flex-1 text-center">
+                            <h2 class="font-bold uppercase text-gray-600">Friends</h2>
+                            <p class="font-bold text-3xl">23 <span class="text-yellow-600"><i class="fas fa-caret-up"></i></span></p>
+                        </div>
+                    </div>
+                </div>
+                <!--/Metric Card-->
+            </div>
+        </div>
+    </div>
+    <div class="mx-auto flex flex-col xl:flex-row gap-5 py-12 justify-between">
+        <div>
+            <div class="bg-black pt-3">
+                <div class="rounded-tl-3xl rounded-tr-3xl bg-gradient-to-r from-green-900 to-gray-800 p-4 shadow text-2xl text-white">
+                    <h1 class="font-bold pl-2">Your clubs:</h1>
+                </div>
+            </div>
+            <mat-table [dataSource]="userClubs">
+                <!-- User name Definition -->
+                <ng-container matColumnDef="id">
+                  <mat-header-cell *matHeaderCellDef class="font-bold"> ID </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                </ng-container>
+              
+                <!-- Age Definition -->
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef class="font-bold"> Name </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+                </ng-container>
+              
+                <!-- Title Definition -->
+                <ng-container matColumnDef="clubCategory">
+                  <mat-header-cell *matHeaderCellDef class="font-bold"> Category </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.clubCategory}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="action">
+                    <mat-header-cell *matHeaderCellDef class="font-bold"> Action </mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        <a [routerLink]="['/clubs/edit/', row.id]"
+                        routerLinkActive="router-link-active" class="text-yellow-500 hover:text-yellow-700">
+                            <mat-icon fontIcon="edit"></mat-icon>
+                        </a>
+                        <a (click)="handleDelete(row.id, row.name)" class="cursor-pointer text-red-500 hover:text-red-700">
+                            <mat-icon fontIcon="delete"></mat-icon>
+                        </a>
+                    </mat-cell>
+                  </ng-container>
+              
+                <!-- Header and Row Declarations -->
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+              </mat-table>
+        </div>
+
+        <div>
+            <div class="bg-black pt-3">
+                <div class="rounded-tl-3xl rounded-tr-3xl bg-gradient-to-r from-gray-800 to-green-900 p-4 shadow text-2xl text-white">
+                    <h1 class="font-bold pl-2">Your races:</h1>
+                </div>
+            </div>
+            <mat-table [dataSource]="userClubs">
+                <!-- User name Definition -->
+                <ng-container matColumnDef="id">
+                  <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                </ng-container>
+              
+                <!-- Age Definition -->
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+                </ng-container>
+              
+                <!-- Title Definition -->
+                <ng-container matColumnDef="clubCategory">
+                  <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.clubCategory}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="action">
+                    <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> <mat-icon fontIcon="create"></mat-icon> </mat-cell>
+                  </ng-container>
+              
+                <!-- Header and Row Declarations -->
+                <mat-header-row *matHeaderRowDef="['id', 'name', 'clubCategory', 'action']"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: ['id', 'name', 'clubCategory', 'action']"></mat-row>
+              </mat-table>
+        </div>
+    </div>
+</section>
