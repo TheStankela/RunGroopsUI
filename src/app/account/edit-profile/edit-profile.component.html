@@ -1,0 +1,43 @@
+<div class="p-16 w-100 md:w-50 mx-auto">
+    <div class="p-8 bg-gray-900 rounded shadow mt-24">
+      <div class="grid grid-cols-1">
+        <form #updateUserForm="ngForm"  (ngSubmit)="handleUpdate(updateUserForm.value)" enctype="multipart/form-data">
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="relative z-0 w-full mb-6 group">
+                    <img src="{{user.imageURL}}" class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl  flex items-center justify-center text-indigo-500"/>
+                </div>
+                <div class="relative z-0 w-full mb-6 group">
+                    <input name="file" (change)="onFileSelected($event)" class="block w-full md:mt-20 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="file" type="file">
+                </div>
+              </div>
+
+            <div class="mb-6">
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username:</label>
+                <input type="text" name="userName" id="userName" [(ngModel)]="user.userName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required>
+            </div>
+
+            <div class="mb-6">
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">About me:</label>
+                <textarea type="text" rows="3" name="description" id="description" [(ngModel)]="user.description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required>
+                </textarea>
+            </div>
+
+            <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="relative z-0 w-full mb-6 group">
+                    <label for="club.address.country" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pace:</label>
+                    <input type="text" name="pace" id="user.pace" [(ngModel)]="user.pace" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required>
+                </div>
+                <div class="relative z-0 w-full mb-6 group">
+                    <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mileage:</label>
+                    <input type="text" name="mileage" id="user.mileage" [(ngModel)]="user.mileage" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required>
+                </div>
+              </div>
+            <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save Changes</button>
+
+        </form>
+        </div>
+      </div>
+    </div>
+
+
+  
