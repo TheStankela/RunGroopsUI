@@ -4,15 +4,21 @@ import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+  public currentUser: User = new User();
+
   baseURL = environment.apiURL;
+
   helper = new JwtHelperService();
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  constructor(private httpClient: HttpClient, private router: Router) {
+    this.decodeToken();
+   }
 
   login(loginInfo: any) : any{
     return this.httpClient.post(this.baseURL + '/account/login', loginInfo).pipe(
@@ -22,7 +28,7 @@ export class AuthService {
     )
   }
   register(loginInfo: any) : any{
-    return this.httpClient.post<any>(this.baseURL + '/account/register', loginInfo, {withCredentials: true})
+    return this.httpClient.post<any>(this.baseURL + '/account/register', loginInfo)
   }
   logout() : any{
     localStorage.removeItem('token');
@@ -40,5 +46,22 @@ export class AuthService {
       }),
     };
     return httpOptions;
+  }
+
+  getUserId(){
+    const token = localStorage.getItem('token');
+    if(token){
+      let decoded = this.helper.decodeToken(token)
+      return decoded.nameid;
+    }
+  }
+  decodeToken(){
+    const token = localStorage.getItem('token');
+    if(token){
+      let decoded = this.helper.decodeToken(token);
+      this.currentUser.id = decoded.nameid;
+      this.currentUser.userName = decoded.given_name;
+      this.currentUser.email = decoded.email;
+    }
   }
 }
