@@ -1,34 +1,62 @@
 <section class="bg-black">
-    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <div class="w-full bg-black rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto ">
+        <div class="w-full rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 bg-black border-gray-700">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                <h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
                     Create and account
                 </h1>
-                <form class="space-y-4 md:space-y-6" #registerForm="ngForm" (ngSubmit)="handleRegister(registerForm.value)">
+                <form class="space-y-4 md:space-y-6" #registerForm="ngForm" (ngSubmit)="handleRegister(registerForm.value)" enctype="multipart/form-data">
                     <div>
-                        <label for="Email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                        <input type="email" name="Email" ngModel id="Email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
+                        <label for="Email" class="block mb-2 text-sm font-medium text-white">Email</label>
+                        <input type="email" name="Email" ngModel id="Email" class="border sm:text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-green-500 focus:border-green-500" placeholder="name@company.com" required="">
                     </div>
                     <div>
-                        <label for="Password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                        <input type="password" name="Password" ngModel id="Password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                        <label for="NickName" class="block mb-2 text-sm font-medium text-white">Nickname</label>
+                        <input type="text" name="NickName" ngModel placeholder="Johnny" class="border sm:text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-green-500 focus:border-green-500" required="">
                     </div>
                     <div>
-                        <label for="ConfirmPassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
-                        <input type="password" ngModel name="ConfirmPassword" id="ConfirmPassword" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                        <label for="Password" class="block mb-2 text-sm font-medium text-white">Password</label>
+                        <input type="password" name="Password" ngModel id="Password" placeholder="••••••••" class="border sm:text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-green-500 focus:border-green-500" required="">
                     </div>
+                    <div>
+                        <label for="Mileage" class="block mb-2 text-sm font-medium text-white">Your weekly milage:</label>
+                        <input type="Mileage" name="Mileage" ngModel id="Mileage" placeholder="Ex. 20" class="border sm:text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-green-500 focus:border-green-500" required="">
+                    </div>
+                    <div>
+                        <label for="Pace" class="block mb-2 text-sm font-medium text-white">Your pace (in minutes):</label>
+                        <input type="Pace" name="Pace" ngModel id="Pace" placeholder="4" class="border sm:text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-green-500 focus:border-green-500" required="">
+                    </div>
+                    <div>
+                        <label for="profilePicture" class="block mb-2 text-sm font-medium text-white">Profile picture:</label>
+
+                        <input name="file" (change)="onFileSelected($event)" ngModel class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="file" type="file">
+                    </div>
+                    <div>
+                        <label for="UserCategory" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category:</label>
+                        <select name="UserCategory" id="UserCategory" ngModel class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
+                        <option [ngValue]=1>Walker</option>
+                        <option [ngValue]=2>Beginner</option>
+                        <option [ngValue]=3>Intermediate</option>
+                        <option [ngValue]=4>Trail</option>
+                        <option [ngValue]=5>Athlete</option>
+                        <option [ngValue]=6>FiveK</option>
+                        <option [ngValue]=7>Marathoner</option>
+                        <option [ngValue]=8>Ultra</option>
+                        </select>
+                    </div>
+
                     <div class="flex items-start">
                         <div class="flex items-center h-5">
-                          <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">
+                          <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border rounded bg-gray-700 border-green-500 focus:ring-green-500 ring-offset-green-800" required="">
                         </div>
                         <div class="ml-3 text-sm">
-                          <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
+                          <label for="terms" class="font-light text-gray-300">I accept the <a class="font-medium hover:underline text-green-500 hover:text-green-400" href="#">Terms and Conditions</a></label>
                         </div>
                     </div>
-                    <button type="submit" class="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Create an account</button>
-                    <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                        Already have an account? <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active" class="font-medium text-green-600 hover:underline dark:text-green-500">Login here</a>
+
+                    <button type="submit" class="w-full text-white focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-green-600 hover:bg-green-700 focus:ring-green-800">Create an account</button>
+                    <p class="text-sm font-light text-gray-400">
+                        Already have an account? <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active" class="font-medium hover:underline text-green-500 hover:text-green-400">Login here</a>
                     </p>
                 </form>
             </div>

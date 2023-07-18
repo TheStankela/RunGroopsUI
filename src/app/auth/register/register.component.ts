@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,11 +11,27 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent {
   
+  selectedFile!: File;
+
+  onFileSelected(event : any){
+    this.selectedFile = <File>event.target.files[0];
+  }
+
   constructor(private authService: AuthService, private router: Router, private toastrService: ToastrService){
 
   }
+
   handleRegister(info: any){
-    this.authService.register(info).subscribe({
+    const fd = new FormData();
+    fd.append('file', this.selectedFile, this.selectedFile.name);
+    fd.append('NickName', info.NickName);
+    fd.append('Email', info.Email);
+    fd.append('Password', info.Password);
+    fd.append('Mileage', info.Mileage);
+    fd.append('Pace', info.Pace);
+    fd.append('UserCategory', info.UserCategory);
+
+    this.authService.register(fd).subscribe({
       next: (res: any) => {
         this.toastrService.success("Welcome to RunGroops!","Registration successful");
         this.router.navigate(['/auth/login']);
