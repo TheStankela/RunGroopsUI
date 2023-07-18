@@ -4,8 +4,16 @@
         <div class="flex justify-content-around flex-row flex-wrap gap-y-10 gap-x-3 lg:gap-x-6">
                 <h1 class="text-2xl font-bold tracking-tight text-white">Featured <span class="text-success">Running Clubs</span></h1>
                 <form (ngSubmit)="searchByName(searchForm.value)" #searchForm="ngForm">
-                    <input type="text" ngModel name="name" placeholder="Search by name..." class="py-1 pl-3 text-white rounded bg-transparent focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-sky-500"/>
-                </form>
+                  <div class="flex">
+                    <select id="searchBy" class="border text-sm rounded-l-lg cursor-pointer block w-full p-2.5 bg-gray-700 border-green-600 
+                    placeholder-gray-400 text-white focus:ring-green-500 focus:border-green-500">
+                        <option selected>Search by</option>
+                        <option value="name">Name</option>
+                        <option value="city">City</option>
+                    </select>
+                    <input type="text" ngModel name="name" placeholder="Search by name..." class="py-1 pl-3 text-white rounded-r-lg bg-transparent focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-sky-500"/>
+                  </div>
+                  </form>
                 <a class="btn btn-outline-success text-white py-1" [routerLink]="['/clubs/create']" >Start a Club</a>
         </div>
       <div *ngIf="clubs.length" class="mt-6 grid grid-cols-1 gap-x-6  sm:grid-cols-1 lg:grid-cols-1 xl:gap-x-8" >

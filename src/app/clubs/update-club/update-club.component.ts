@@ -34,7 +34,7 @@ onFileSelected(event : any){
     }
 
     let id = this.route.snapshot.paramMap.get('id');
-
+    
     if(id){
       const token = localStorage.getItem('token');
       if(token != null){
