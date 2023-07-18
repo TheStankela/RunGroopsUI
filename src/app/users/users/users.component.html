@@ -1,0 +1,52 @@
+<section  class="w-75 mx-auto py-12 flex flex-col xl:mt-12 lg:mt-12">
+    <div class="bg-black rounded top-[120px] max-w-2xl mx-auto flex flex-row">
+      <div class="max-w-2xl">
+        <div class="flex justify-content-around flex-row flex-wrap gap-y-10 gap-x-3 lg:gap-x-6">
+            <h1 class="text-2xl font-bold tracking-tight text-white">Featured <span class="text-success">Users</span></h1>
+            <form (ngSubmit)="searchByName(searchForm.value)" #searchForm="ngForm">
+              <div class="flex">
+                <select id="searchBy" class="border text-sm rounded-l-lg cursor-pointer block w-full p-2.5 bg-gray-700 border-green-600 
+                placeholder-gray-400 text-white focus:ring-green-500 focus:border-green-500">
+                    <option selected>Search by</option>
+                    <option value="name">Name</option>
+                    <option value="city">City</option>
+                </select>
+                <input type="text" ngModel name="userName" placeholder="Search..." class="py-1 pl-3 text-white rounded-r-lg bg-transparent focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"/>
+              </div>
+              </form>
+        </div>
+        <div *ngIf="users.length" class="mt-6 grid grid-cols-1 gap-x-6  sm:grid-cols-1 lg:grid-cols-1 xl:gap-x-8" >
+          <div class="group relative flex flex-row items-start gap-5 border-green-900 border-t-2 py-4" *ngFor="let user of users">
+            <div class="w-[150px] h-[150px] overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 justify-start">
+                <img src="{{user.imageURL}}" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+            </div>
+            <div class="mt-4 flex justify-center align-content-center">
+              <div>
+                <h3 class="text-sm md:text-lg text-light">
+                  <h1 [routerLink]="['/users/', user.id]"
+                  routerLinkActive="router-link-active" routerLinkActive="router-link-active"  class="text-light font-bold cursor-pointer text-sm md:text-lg">
+                    <span aria-hidden="true" class="absolute inset-0"></span>
+                    {{user.userName}}
+                  </h1>
+                </h3>
+                <p class="mt-3 text-sm md:text-md font-semibold text-green-900">Mileage: {{user.mileage}}</p>
+                <p class="mt-3 text-sm md:text-md font-semibold text-green-900">Pace: {{user.mileage}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="pt-2 flex justify-center">
+              <a type="button" class="btn btn-sm btn-outline-success" (click)="prevPage();">Prev</a>
+              <span class="ms-3 text-muted text-small">Page {{pageNumber + 1}}</span>
+              <a type="button" class="btn btn-sm btn-outline-success ms-3" (click)="nextPage();">Next</a>
+          </div>
+          <!-- More products... -->
+        </div>
+        <div *ngIf="!users.length" class="mt-6 grid grid-cols-1 gap-x-6  sm:grid-cols-1 lg:grid-cols-1 xl:gap-x-8">
+          <h1 class="text-2xl font-bold tracking-tight text-white mx-auto mt-12">No users found.</h1>
+            <a type="button" class="btn btn-sm btn-outline-success mt-12 flex-wrap" (click)="getUsers(0);">Go to first page</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+    
