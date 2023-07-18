@@ -3,43 +3,65 @@
     <a href="/" class="flex items-center">
         <span class="self-center text-2xl font-semibold whitespace-nowrap text-success">RunGroops</span>
     </a>
-    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm rounded-lg md:hidden  focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
       <span class="sr-only">Open main menu</span>
       <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul class="font-medium flex flex-col mt-2 md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0">
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a>
+          <a [routerLink]="['']" class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Home</a>
         </li>
         <li>
-          <a [routerLink]="['/clubs']" routerLinkActive="router-link-active"  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Clubs</a>
+          <a [routerLink]="['/clubs']" routerLinkActive="router-link-active"  class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Clubs</a>
         </li>
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Races</a>
+          <a [routerLink]="['/races']" class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Races</a>
         </li>
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">People</a>
-        </li>
-        
-        <li>
-          <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active" *ngIf="!authService.loggedIn()" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
+          <a [routerLink]="['/users']" class="block py-2 pl-3 pr-3 rounded md:border-0 text-white hover:bg-gray-700">People</a>
         </li>
         <li>
-          <a [routerLink]="['/auth/register']" routerLinkActive="router-link-active" *ngIf="!authService.loggedIn()" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Register</a>
+          <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active" *ngIf="!authService.loggedIn()" class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Login</a>
         </li>
         <li>
-          <a [routerLink]="['/profile']" routerLinkActive="router-link-active"  *ngIf="authService.loggedIn()" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Profile</a>
+          <a [routerLink]="['/auth/register']" routerLinkActive="router-link-active" *ngIf="!authService.loggedIn()" class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Register</a>
         </li>
-        <li>
-          <a (click)="logout()" *ngIf="authService.loggedIn()" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent cursor-pointer">Logout</a>
+        <li *ngIf="authService.loggedIn()">
+          <div class="block z-50 py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">
+            <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" class="flex items-center font-medium text-white" type="button">
+              <span class="sr-only">Open user menu</span>
+              <img class="w-8 h-8 mr-2 rounded-full" src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=2000" alt="user photo">
+              {{authService.currentUser.userName}}
+              <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+            </svg>
+            </button>
+  
+            <!-- Dropdown menu -->
+              <div id="dropdownAvatarName" class="z-50 hidden divide-y rounded-lg shadow w-44 bg-gray-700 divide-gray-600">
+                <div class="px-4 py-3 text-sm text-white">
+                  <div class="truncate">{{authService.currentUser.email}}</div>
+                </div>
+                <ul class="py-2 text-sm text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+                  <li>
+                    <a [routerLink]="['/users/', authService.currentUser.id]"
+                    routerLinkActive="router-link-active" class="block px-4 py-2 cursor-pointer hover:bg-gray-600 hover:text-white">View Profile</a>
+                  </li>
+                  <li>
+                    <a [routerLink]="['/profile/dashboard']" routerLinkActive="router-link-active"  class="block px-4 py-2 hover:bg-gray-600 hover:text-white">Dashboard</a>
+                  </li>
+                  <li>
+                    <a [routerLink]="['/profile/edit']" class="block px-4 py-2 hover:bg-gray-600 hover:text-white">Settings</a>
+                  </li>
+                </ul>
+                <div class="py-2">
+                  <a (click)="logout()" class="block px-4 py-2 cursor-pointer text-sm hover:bg-gray-600 text-gray-200 hover:text-white">Sign out</a>
+                </div>
+              </div>
+          </div>
+          
         </li>
-        <li>
-          <form>
-            <input type="text" name="text" placeholder="Search..." class="block py-2 pl-3 pr-4 text-gray-900 rounded bg-transparent focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-sky-500"/>
-          </form>
-        </li>
-        
       </ul>
     </div>
   </div>

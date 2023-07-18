@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { HttpHeaders } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-   constructor(public authService: AuthService, private toastrService: ToastrService){
+   constructor(public authService: AuthService, private toastrService: ToastrService, private router: Router){
 
    }
 
@@ -22,5 +23,13 @@ export class NavbarComponent {
     }
     this.authService.logout();
     this.toastrService.success("Logout successful!")
+   }
+
+   showUserProfile(){
+    let userId = this.authService.getUserId();
+
+    if(userId){
+      this.router.navigate(['/users/' + userId]);
+    }
    }
 }
