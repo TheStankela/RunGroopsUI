@@ -1,1 +1,110 @@
-<p>dashboard works!</p>
+<div class="md:flex bg-gray-900 rounded my-12 antialiased w-75 mx-auto">
+	<main class="w-full rounded">
+		<section class="rounded">
+			<header class="border-b border-solid rounded-t-lg border-gray-700 bg-gray-800">
+				<h1 class="p-6 mx-auto text-green-500 font-bold">DASHBOARD</h1>
+			</header>
+			<section class="m-4 bg-gray-850 border border-gray-900 border-solid rounded shadow">
+				<header class="border-b border-solid border-gray-300 p-4 text-lg font-medium text-gray-300">
+					Quick Overview
+				</header>
+				<section class=" flex flex-row flex-wrap items-center text-center border-b border-solid border-gray-900">
+					<div class="p-4 w-full sm:w-1/1 md:w-1/3 border-b border-solid border-gray-300 md:border-b-0 sm:border-r">
+						<span class="text-sm font-medium text-gray-400 uppercase">TOTAL CLUBS</span>
+						<div class="py-3 flex items-center justify-center text-center">
+							<span class="text-3xl text-gray-500">{{userClubs.length}}</span>
+						</div>
+					</div>
+					<div class="p-4 w-full sm:w-1/1 md:w-1/3 border-b border-solid border-gray-300 md:border-b-0 sm:border-r">
+						<span class="text-sm font-medium text-gray-400 uppercase">TOTAL RACES</span>
+						<div class="py-3 flex items-center justify-center text-center">
+							<span class="text-3xl text-gray-500">{{userRaces.length}}</span>
+						</div>
+					</div>
+					<div class="p-4 w-full sm:w-1/1 md:w-1/3 border-b border-solid border-gray-300 md:border-b-0 sm:border-r">
+						<span class="text-sm font-medium text-gray-400 uppercase">TOTAL FRIENDS</span>
+						<div class="py-3 flex items-center justify-center text-center">
+							<span class="text-3xl text-gray-500">0</span>
+						</div>
+					</div>
+				</section>
+			</section>
+
+			<div class="flex flex-wrap flex-row">
+				<div class="w-full lg:w-1/2">
+					<section class="m-4 bg-gray-900 border border-gray-300 border-solid rounded shadow">
+						<header class="border-b bg-gray-800 text-gray-300 border-solid border-gray-300 p-4 text-lg font-medium">
+							YOUR CLUBS:
+						</header>
+						<section class="w-full">
+							<table class="w-full" cellpadding="0" cellspacing="0" border="0">
+								<tbody *ngIf="userClubs.length">
+									<tr *ngFor="let club of userClubs">
+										<td class="p-1 py-3 border-b border-solid border-gray-300">
+											<div class=" flex flex-wrap flex-row items-center">
+												<div class="mr-2 h-12 w-12 rounded-full block flex  flex-row justify-center items-center text-white">
+                                                    <img src="{{club.imageURL}}" class="rounded-xl">
+                                                </div>
+												<div class="text-gray-300 font-md">{{club.name}}</div>
+											</div>
+
+										</td>
+										<td class="text-right p-1 pr-3 border-b border-solid border-gray-300 text-gray-700">
+                                            <a [routerLink]="['/clubs/edit/', club.id]" routerLinkActive="router-link-active" class="cursor-pointer m-1 text-yellow-500 hover:text-yellow-600">
+                                                <mat-icon fontIcon="edit"></mat-icon>
+                                            </a>
+                                            <a (click)="handleDeleteClub(club.id, club.name)" class="m-1 cursor-pointer text-red-500 hover:text-red-700">
+                                                <mat-icon fontIcon="delete"></mat-icon>
+                                            </a>
+                                        </td>
+									</tr>
+								</tbody>
+                                <tbody *ngIf="!userClubs.length">
+									<tr>
+										<td class="p-1 py-3 border-b border-solid border-gray-300">
+											<div class="text-gray-300 text-lg font-md">You have no clubs.</div>
+									</tr>
+								</tbody>
+							</table>
+						</section>
+					</section>
+				</div>
+				<div class="w-full lg:w-1/2">
+					<section class="m-4 bg-gray-900 border border-gray-300 border-solid rounded shadow">
+						<header class="border-b bg-gray-800 text-gray-300 border-solid border-gray-300 p-4 text-lg font-medium">
+							YOUR RACES:
+						</header>
+						<section class="w-full">
+							<table class="w-full" cellpadding="0" cellspacing="0" border="0">
+								<tbody *ngIf="userRaces.length">
+									<tr *ngFor="let race of userRaces">
+										<td class="p-1 py-3 border-b border-solid border-gray-300">
+											<div class=" flex flex-wrap flex-row items-center">
+												<div class="mr-2 h-12 w-12  rounded-lg block flex  flex-row justify-center items-center text-white">
+                                                    <img src="{{race.imageURL}}" class="rounded-xl">
+                                                </div>
+												<div class="text-gray-300 font-md">{{race.name}}</div>
+											</div>
+
+										</td>
+										<td class="text-right p-1 pr-3 border-b border-solid border-gray-300 text-gray-700">
+                                            <a [routerLink]="['/races/edit/', race.id]" routerLinkActive="router-link-active" class="cursor-pointer m-1 text-yellow-500 hover:text-yellow-600">
+                                                <mat-icon fontIcon="edit"></mat-icon>
+                                            </a>
+                                            <a (click)="handleDeleteRace(race.id, race.name)" class="m-1 cursor-pointer text-red-500 hover:text-red-700">
+                                                <mat-icon fontIcon="delete"></mat-icon>
+                                            </a>
+                                        </td>
+									</tr>
+								</tbody>
+                                <tbody *ngIf="!userRaces.length">
+									<tr>
+										<td class="p-1 py-3 border-b border-solid border-gray-300">
+											<div class="text-gray-300 text-lg font-md">You have no races.</div>
+									</tr>
+								</tbody>
+							</table>
+						</section>
+					</section>
+				</div>
+		</div>
