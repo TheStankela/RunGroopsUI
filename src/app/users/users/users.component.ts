@@ -18,18 +18,28 @@ export class UsersComponent {
     this.getUsers(this.pageNumber);
   }
 
-  getUsers(pageNumber: number){
-    this.userService.getUsers(pageNumber).subscribe({
-      next: (res) => this.users = res,
-      error: (err) => console.log(err)
+  getUsers(page: number){
+    if(page < 0){
+      this.pageNumber = 0;
+      return;
+    }
+
+    this.userService.getUsers(page).subscribe({
+      next: (res) => {
+        this.users = res;
+        if(!this.users.length){
+          this.pageNumber = 0;
+          this.getUsers(this.pageNumber);
+        }}
     })
   }
 
   searchByName(formData: any){
     this.users = [];
     this.userService.getUsersByName(formData.userName).subscribe({
-      next: (res) => this.users = res,
-      error: (err) => console.log(err)
+      next: (res) => {
+        this.users = res;
+      }
     })
   }
 
