@@ -24,7 +24,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProfileComponent } from './account/profile/profile.component';
 import { UpdateClubComponent } from './clubs/update-club/update-club.component';
 import { RacesComponent } from './races/races/races.component';
 import { RaceSingleComponent } from './races/race-single/race-single.component';
@@ -38,6 +37,8 @@ import { EditProfileComponent } from './account/edit-profile/edit-profile.compon
 import { DashboardComponent } from './account/dashboard/dashboard.component';
 import { UsersComponent } from './users/users/users.component';
 import { UserSingleComponent } from './users/user-single/user-single.component';
+import { NewsletterComponent } from './index/newsletter/newsletter.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,6 @@ import { UserSingleComponent } from './users/user-single/user-single.component';
     ClubsComponent,
     ClubSingleComponent,
     CreateClubComponent,
-    ProfileComponent,
     UpdateClubComponent,
     RacesComponent,
     RaceSingleComponent,
@@ -62,6 +62,8 @@ import { UserSingleComponent } from './users/user-single/user-single.component';
     UsersComponent,
     UserSingleComponent,
     UsersComponent,
+    NewsletterComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

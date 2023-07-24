@@ -6,7 +6,6 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ClubsComponent } from './clubs/clubs/clubs.component';
 import { CreateClubComponent } from './clubs/create-club/create-club.component';
 import ClubSingleComponent from './clubs/club-single/club-single.component';
-import { ProfileComponent } from './account/profile/profile.component';
 import { UpdateClubComponent } from './clubs/update-club/update-club.component';
 import { RacesComponent } from './races/races/races.component';
 import { RaceCreateComponent } from './races/race-create/race-create.component';
@@ -23,7 +22,6 @@ const routes: Routes = [
   { path: 'auth/login', component: LoginComponent},
   { path: 'auth/register', component: RegisterComponent},
 
-  { path: 'profile', component: ProfileComponent},
   { path: 'profile/dashboard', component: DashboardComponent},
   { path: 'profile/edit', component: EditProfileComponent},
 
