@@ -19,27 +19,28 @@ export class ClubsComponent implements OnInit{
   pageNumber: number = 0;
 
   getClubs(page: number){
-    if(page < 0){return;}
+    if(page < 0){
+      this.pageNumber = 0;
+      return;}
       
     this.clubService.getClubs(page).subscribe({
       next: 
         res => {
           this.clubs = res;
-        },
-        
-      error: 
-        err => {
-          console.log(err)
+          if(!this.clubs.length){
+            this.pageNumber = 0;
+            this.getClubs(this.pageNumber);
+          }
         }
     })
   }
 
   searchByName(name: any){
     this.clubs = [];
-    return this.clubService.getClubByName(name.name).subscribe({
+    return this.clubService.getClubsByName(name.name).subscribe({
       next: 
         res => {
-          this.clubs.push(res);
+          this.clubs = res;
       }
     })
   }
