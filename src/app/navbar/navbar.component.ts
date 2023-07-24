@@ -32,4 +32,6 @@ export class NavbarComponent {
       this.router.navigate(['/users/' + userId]);
     }
    }
+
+   hideNavbar( e: any ) { e.hide(); }
 }

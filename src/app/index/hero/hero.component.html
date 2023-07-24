@@ -1,7 +1,15 @@
-<div class="lg:flex-row flex-col-reverse flex overflow-hidden mt-12">
+<div class="md:flex-row flex-col-reverse flex overflow-hidden mt-12">
     <div class="m-auto">
-        <button id="slider" class="btn bg-green-700 hover:bg-green-800 p-3  mt-6
-         text-white rounded-lg font-medium upper slide-left w-[225px]">Get Started</button>
+        <div class="mt-12">
+            <a type="submit" [routerLink]="['/auth/register']"
+                class="m-auto rounded bg-success px-7 py-3 flex-wrap text-sm font-medium uppercase 
+                text-white shadow-[0_4px_9px_-4px_#2eb85c] transition duration-150 
+                ease-in-out hover:shadow-[0_4px_18px_18px_rgba(46,184,92,0.2)]"
+                data-te-ripple-init data-te-ripple-color="light">
+                Get started
+            </a>
+        </div>
+        
     </div>
     <div class="xl:flex-0 md:w-[500px] h-[300px] md:mx-auto">
             <app-planet class="topDiv"></app-planet>

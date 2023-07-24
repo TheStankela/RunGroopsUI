@@ -10,22 +10,22 @@
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul class="font-medium flex flex-col mt-2 md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0">
         <li>
-          <a [routerLink]="['']" class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Home</a>
+          <a  [routerLink]="['']" class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Home</a>
         </li>
         <li>
-          <a [routerLink]="['/clubs']" routerLinkActive="router-link-active"  class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Clubs</a>
+          <a  [routerLink]="['/clubs']" routerLinkActive="bg-gray-800"  class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Clubs</a>
         </li>
         <li>
-          <a [routerLink]="['/races']" class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Races</a>
+          <a [routerLink]="['/races']" routerLinkActive="bg-gray-800" class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Races</a>
         </li>
         <li>
-          <a [routerLink]="['/users']" class="block py-2 pl-3 pr-3 rounded md:border-0 text-white hover:bg-gray-700">People</a>
+          <a [routerLink]="['/users']" routerLinkActive="bg-gray-800" class="block py-2 pl-3 pr-3 rounded md:border-0 text-white hover:bg-gray-700">People</a>
         </li>
         <li>
-          <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active" *ngIf="!authService.loggedIn()" class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Login</a>
+          <a [routerLink]="['/auth/login']" routerLinkActive="bg-gray-800" *ngIf="!authService.loggedIn()" class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Login</a>
         </li>
         <li>
-          <a [routerLink]="['/auth/register']" routerLinkActive="router-link-active" *ngIf="!authService.loggedIn()" class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Register</a>
+          <a [routerLink]="['/auth/register']" routerLinkActive="bg-gray-800" *ngIf="!authService.loggedIn()" class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Register</a>
         </li>
         <li *ngIf="authService.loggedIn()">
           <div class="block z-50 py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">
