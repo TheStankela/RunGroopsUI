@@ -39,12 +39,11 @@ onFileSelected(event : any){
 
   handleUpdate(info: any){
     const fd = new FormData();
-    fd.append('file', this.selectedFile, this.selectedFile.name);
-    fd.append('NickName', info.Username);
-    fd.append('Email', info.Description);
-    fd.append('Password', info.Pace);
-    fd.append('Mileage', info.Mileage);
-    fd.append('UserCategory', info.UserCategory);
+    fd.append('File', this.selectedFile, this.selectedFile.name);
+    fd.append('UserName', info.userName);
+    fd.append('Description', info.description);
+    fd.append('Pace', info.pace);
+    fd.append('Mileage', info.mileage);
 
     this.accountService.updateAccount(fd, this.authService.currentUser.id, this.authService.getHttpOptions()).subscribe({
       next: (res: any) => {
