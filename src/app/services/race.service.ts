@@ -22,9 +22,15 @@ export class RaceService {
   getRacesByCity(cityId: number){
     return this.httpClient.get<Race[]>(this.baseUrl + '/Race/City/' + cityId);
   }
+  getUserRaces(userId: number){
+    return this.httpClient.get<Race[]>(this.baseUrl + '/User/Races?userId=' + userId, this.authService.getHttpOptions());
+   }
   deleteRace(raceId: number){
-    return this.httpClient.delete<any>(this.baseUrl + '/Race?raceId=' + raceId);
+    return this.httpClient.delete<any>(this.baseUrl + '/Race?raceId=' + raceId, this.authService.getHttpOptions());
   }
+  updateRace(body: any, id: number){
+    return this.httpClient.put<any>(this.baseUrl + '/Race?raceId=' + id, body, this.authService.getHttpOptions());
+   }
   getRacesByName(name: string){
     return this.httpClient.get<Race[]>(this.baseUrl + '/Race/name=' + name);
   }

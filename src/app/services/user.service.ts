@@ -13,13 +13,13 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   getUsers(pageNumber: number){
-    return this.httpClient.get<User[]>(this.baseUrl + '/user?pageNumber=' + pageNumber);
+    return this.httpClient.get<User[]>(this.baseUrl + '/user?page=' + pageNumber);
   }
   getUserById(userId: string){
     return this.httpClient.get<User>(this.baseUrl + '/user/' + userId);
   }
   getUsersByName(userName: string){
-    return this.httpClient.get<User[]>(this.baseUrl + '/user/name=' + userName);
+    return this.httpClient.get<User[]>(this.baseUrl + '/user/userName=' + userName);
   }
   getUserClubs(userId: string){
     return this.httpClient.get<Club[]>(this.baseUrl + '/user/clubs?userId=' + userId);

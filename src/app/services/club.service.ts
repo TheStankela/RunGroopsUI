@@ -17,11 +17,11 @@ export class ClubService {
    getClubs(page: number){
     return this.httpClient.get<Club[]>(this.baseURL + '/club?page=' + page);
    }
-   getUserClubs(){
-    return this.httpClient.get<Club[]>(this.baseURL + '/club/user', this.authService.getHttpOptions());
+   getUserClubs(userId: number){
+    return this.httpClient.get<Club[]>(this.baseURL + '/user/clubs?userId=' + userId, this.authService.getHttpOptions());
    }
-   getClubByName(clubName: string){
-    return this.httpClient.get<Club>(this.baseURL + '/club/name=' + clubName);
+   getClubsByName(clubName: string){
+    return this.httpClient.get<Club[]>(this.baseURL + '/club/name=' + clubName);
    }
    getClubById(id: number){
     return this.httpClient.get<Club>(this.baseURL + '/club/' + id);
