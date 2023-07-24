@@ -4,13 +4,31 @@
         <div class="flex flex-col justify-start items-start">
             <h1 class="{{styles.heroHeadText}} text-white">Welcome to <span class="text-success">RunGroops</span></h1>
             <p class="{{styles.heroSubText}} mt-2 text-white-100">
-                Meet and compete with other runners!
+                Meet and compete with other runners near you!
             </p>
         </div>
     </div>
-    <app-hero></app-hero>
+    <app-hero class="{{styles.paddingX}}"></app-hero>
+    <div>
+        <div class="inset-0 mt-12 pt-36 pb-12 max-w-7xl mx-auto flex rounded-t-lg bg-gradient-to-t from-gray-900 to-[#000015]">
+            <div class=" {{styles.paddingX}} pt-6 flex flex-col justify-center items-center text-center mx-auto ">
+                <h1 class="text-lg lg:text-xl xl:text-2xl 2xl:text-5xl text-white font-bold">Start building your own running community</h1>
+                    <a class="btn btn-success mt-12 text-white">Start a Club</a> 
+            </div>
+        </div>
+        <div class="inset-0 max-w-7xl mx-auto flex bg-gradient-to-r from-[#000015] via-gray-900 to-[#000015]">
+            <div class=" {{styles.paddingX}} flex flex-col justify-center items-center text-center mx-auto ">
+                <h1 class="text-lg lg:text-xl xl:text-2xl 2xl:text-5xl text-white font-bold">OR</h1>
+            </div>
+        </div>
+        <div class="inset-0 mb-24 pt-24 pb-36 max-w-7xl mx-auto flex rounded-b-lg bg-gradient-to-b from-gray-900 to-[#000015]">
+            <div class=" {{styles.paddingX}} pb-6 flex flex-col justify-center items-center text-center mx-auto ">
+                <h1 class="text-lg lg:text-xl xl:text-2xl 2xl:text-5xl text-white font-bold">Start your own competition</h1>
+                    <a class="btn btn-success mt-12 text-white">Create a Race</a> 
+            </div>
+        </div>
+    </div>
+    
+    <app-newsletter></app-newsletter>
+    
 </section>
-
-
-
-
