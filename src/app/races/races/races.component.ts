@@ -19,10 +19,21 @@ export class RacesComponent implements OnInit{
     this.getRaces(this.pageNumber);
   }
 
-  getRaces(pageNumber: number){
-    this.raceService.getRaces(pageNumber).subscribe({
-      next: (res) => this.races = res,
-      error: (err) => console.log(err)
+  getRaces(page: number){
+
+    if(page < 0){
+      this.pageNumber = 0;
+      return;
+    }
+
+
+    this.raceService.getRaces(page).subscribe({
+      next: (res) => {
+        this.races = res;
+        if(!this.races.length){
+          this.pageNumber = 0;
+          this.getRaces(this.pageNumber);
+        }}
     })
   }
 
