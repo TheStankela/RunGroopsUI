@@ -14,14 +14,14 @@ export class ClubService {
   constructor(private httpClient: HttpClient, private authService: AuthService){
 
    }
-   getClubs(page: number){
-    return this.httpClient.get<Club[]>(this.baseURL + '/club?page=' + page);
+   getClubs(page: number, pageSize: number){
+    return this.httpClient.get<Club[]>(this.baseURL + '/club?page=' + page + '&pageSize=' + pageSize);
    }
    getUserClubs(userId: number){
     return this.httpClient.get<Club[]>(this.baseURL + '/user/clubs?userId=' + userId, this.authService.getHttpOptions());
    }
-   getClubsByName(clubName: string){
-    return this.httpClient.get<Club[]>(this.baseURL + '/club/name=' + clubName);
+   getClubsByName(clubName: string, page: number, pageSize: number){
+    return this.httpClient.get<Club[]>(this.baseURL + '/club/name=' + clubName + '?page=' + page + '&pageSize=' + pageSize);
    }
    getClubById(id: number){
     return this.httpClient.get<Club>(this.baseURL + '/club/' + id);
