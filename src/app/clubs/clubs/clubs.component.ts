@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Club } from 'src/app/models/club';
 import { ClubService } from 'src/app/services/club.service';
 
@@ -8,49 +8,74 @@ import { ClubService } from 'src/app/services/club.service';
   styleUrls: ['./clubs.component.scss'],
 })
 export class ClubsComponent implements OnInit{
-
-  constructor(private clubService: ClubService){}
   clubs: Club[] = [];
-
-  ngOnInit(): void {
-    this.getClubs(this.pageNumber);
-  }
   
-  pageNumber: number = 0;
+  searchTerm: string = "";
 
-  getClubs(page: number){
+  pageSize: number = 5;
+  pageNumber: number = 0;
+  hasPreviousPage: boolean = false;
+  hasNextPage: boolean = false;
+  searchedByName: boolean = false;
+
+  constructor(private clubService: ClubService){
+
+  }
+  ngOnInit(): void {
+    this.getClubs(this.pageNumber, this.pageSize);
+  }
+
+  getClubs(page: number, pageSize: number){
     if(page < 0){
       this.pageNumber = 0;
-      return;}
-      
-    this.clubService.getClubs(page).subscribe({
-      next: 
-        res => {
-          this.clubs = res;
-          if(!this.clubs.length){
-            this.pageNumber = 0;
-            this.getClubs(this.pageNumber);
-          }
+      return;
+    }
+
+    this.clubService.getClubs(page, pageSize).subscribe({
+      next: (res: any) => {
+        this.clubs = res.list;
+        this.hasPreviousPage = res.hasPreviousPage;
+        this.hasNextPage = res.hasNextPage;
         }
     })
   }
 
-  searchByName(name: any){
+  searchByName(query: any){
     this.clubs = [];
-    return this.clubService.getClubsByName(name.name).subscribe({
-      next: 
-        res => {
-          this.clubs = res;
+    this.clubService.getClubsByName(query, this.pageNumber, this.pageSize).subscribe({
+      next: (res: any) => {
+        this.clubs = res.list;
+        this.hasPreviousPage = res.hasPreviousPage;
+        this.hasNextPage = res.hasNextPage;
+        this.searchTerm = query;
+        this.searchedByName = true;
       }
     })
   }
 
   nextPage(){
+    if(!this.hasNextPage){
+      return;
+    }
     this.pageNumber++;
-    this.getClubs(this.pageNumber);
+
+    if(this.searchedByName){
+      this.searchByName(this.searchTerm)
+    }
+    else{
+      this.getClubs(this.pageNumber, this.pageSize);
+    }
   }
   prevPage(){
+    if(!this.hasPreviousPage){
+      return;
+    }
     this.pageNumber--;
-    this.getClubs(this.pageNumber);
+    if(this.searchedByName){
+      this.searchByName(this.searchTerm)
+    }
+    else{
+      this.getClubs(this.pageNumber, this.pageSize);
+    }
   }
 }
