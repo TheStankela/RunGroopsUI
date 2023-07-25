@@ -10,47 +10,73 @@ import { RaceService } from 'src/app/services/race.service';
 export class RacesComponent implements OnInit{
 
   races: Race[] = [];
+  
+  searchTerm: string = "";
 
+  pageSize: number = 5;
   pageNumber: number = 0;
+  hasPreviousPage: boolean = false;
+  hasNextPage: boolean = false;
+  searchedByName: boolean = false;
+
   constructor(private raceService: RaceService){
 
   }
   ngOnInit(): void {
-    this.getRaces(this.pageNumber);
+    this.getRaces(this.pageNumber, this.pageSize);
   }
 
-  getRaces(page: number){
-
+  getRaces(page: number, pageSize: number){
     if(page < 0){
       this.pageNumber = 0;
       return;
     }
 
-
-    this.raceService.getRaces(page).subscribe({
-      next: (res) => {
-        this.races = res;
-        if(!this.races.length){
-          this.pageNumber = 0;
-          this.getRaces(this.pageNumber);
-        }}
+    this.raceService.getRaces(page, pageSize).subscribe({
+      next: (res: any) => {
+        this.races = res.list;
+        this.hasPreviousPage = res.hasPreviousPage;
+        this.hasNextPage = res.hasNextPage;
+        }
     })
   }
 
-  searchByName(formData: any){
+  searchByName(query: any){
     this.races = [];
-    this.raceService.getRacesByName(formData.raceName).subscribe({
-      next: (res) => this.races = res,
-      error: (err) => console.log(err)
+    this.raceService.getRacesByName(query, this.pageNumber, this.pageSize).subscribe({
+      next: (res: any) => {
+        this.races = res.list;
+        this.hasPreviousPage = res.hasPreviousPage;
+        this.hasNextPage = res.hasNextPage;
+        this.searchTerm = query;
+        this.searchedByName = true;
+      }
     })
   }
 
   nextPage(){
+    if(!this.hasNextPage){
+      return;
+    }
     this.pageNumber++;
-    this.getRaces(this.pageNumber);
+
+    if(this.searchedByName){
+      this.searchByName(this.searchTerm)
+    }
+    else{
+      this.getRaces(this.pageNumber, this.pageSize);
+    }
   }
   prevPage(){
+    if(!this.hasPreviousPage){
+      return;
+    }
     this.pageNumber--;
-    this.getRaces(this.pageNumber);
+    if(this.searchedByName){
+      this.searchByName(this.searchTerm)
+    }
+    else{
+      this.getRaces(this.pageNumber, this.pageSize);
+    }
   }
 }

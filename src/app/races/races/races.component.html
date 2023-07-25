@@ -3,7 +3,7 @@
     <div class="max-w-2xl w-3/4 mx-auto">
         <div class="flex justify-content-around flex-row flex-wrap gap-y-10 gap-x-3 lg:gap-x-6">
             <h1 class="text-2xl font-bold tracking-tight text-white">Featured <span class="app-green">Races</span></h1>
-            <form (ngSubmit)="searchByName(searchForm.value)" #searchForm="ngForm">
+            <form (ngSubmit)="searchByName(searchForm.value.raceName)" #searchForm="ngForm">
               <div class="flex">
                 <select id="searchBy" class="border text-sm rounded-l-lg cursor-pointer block w-full p-2.5 bg-gray-700 border-green-600 
                 placeholder-gray-400 text-white focus:ring-green-500 focus:border-green-500">
@@ -36,15 +36,14 @@
             </div>
           </div>
           <div class="pt-2 flex justify-center">
-              <a type="button" class="btn btn-sm btn-outline-success" (click)="prevPage();">Prev</a>
-              <span class="ms-3 text-muted text-small">Page {{pageNumber + 1}}</span>
-              <a type="button" class="btn btn-sm btn-outline-success ms-3" (click)="nextPage();">Next</a>
-          </div>
+            <a type="button" class="btn btn-sm btn-outline-success" [ngClass]="hasPreviousPage ? '' : 'disabled'" (click)="prevPage();">Prev</a>
+            <span class="ms-3 text-muted text-small">Page {{pageNumber + 1}}</span>
+            <a type="button" class="btn btn-sm btn-outline-success ms-3" [ngClass]="hasNextPage ? '' : 'disabled'" (click)="nextPage();">Next</a>
+        </div>
           <!-- More products... -->
         </div>
         <div *ngIf="!races.length" class="mt-6 grid grid-cols-1 gap-x-6  sm:grid-cols-1 lg:grid-cols-1 xl:gap-x-8">
-          <h1 class="text-2xl font-bold tracking-tight text-white mx-auto mt-12">No races found.</h1>
-            <a type="button" class="btn btn-sm btn-outline-success mt-12 flex-wrap" (click)="getRaces(0);">Go to first page</a>
+          <h1 class="text-2xl font-bold tracking-tight text-white mx-auto my-24">No users found.</h1>
         </div>
       </div>
     </div>
