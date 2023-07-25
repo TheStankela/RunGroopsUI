@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,45 +10,71 @@ import { UserService } from 'src/app/services/user.service';
 export class UsersComponent {
   users: User[] = [];
 
+  searchTerm: string = "";
+
+  pageSize: number = 5;
   pageNumber: number = 0;
+  hasPreviousPage: boolean = false;
+  hasNextPage: boolean = false;
+  searchedByName: boolean = false;
+
   constructor(private userService: UserService){
 
   }
   ngOnInit(): void {
-    this.getUsers(this.pageNumber);
+    this.getUsers(this.pageNumber, this.pageSize);
   }
 
-  getUsers(page: number){
+  getUsers(page: number, pageSize: number){
     if(page < 0){
       this.pageNumber = 0;
       return;
     }
-
-    this.userService.getUsers(page).subscribe({
-      next: (res) => {
-        this.users = res;
-        if(!this.users.length){
-          this.pageNumber = 0;
-          this.getUsers(this.pageNumber);
-        }}
+    this.userService.getUsers(page, pageSize).subscribe({
+      next: (res: any) => {
+        this.users = res.list;
+        this.hasPreviousPage = res.hasPreviousPage;
+        this.hasNextPage = res.hasNextPage;
+        }
     })
   }
 
   searchByName(formData: any){
     this.users = [];
-    this.userService.getUsersByName(formData.userName).subscribe({
-      next: (res) => {
-        this.users = res;
+    this.userService.getUsersByName(formData, this.pageNumber, this.pageSize).subscribe({
+      next: (res: any) => {
+        this.users = res.list;
+        this.hasPreviousPage = res.hasPreviousPage;
+        this.hasNextPage = res.hasNextPage;
+        this.searchTerm = formData;
+        this.searchedByName = true;
       }
     })
   }
 
   nextPage(){
+    if(!this.hasNextPage){
+      return;
+    }
     this.pageNumber++;
-    this.getUsers(this.pageNumber);
+
+    if(this.searchedByName){
+      this.searchByName(this.searchTerm)
+    }
+    else{
+      this.getUsers(this.pageNumber, this.pageSize);
+    }
   }
   prevPage(){
+    if(!this.hasPreviousPage){
+      return;
+    }
     this.pageNumber--;
-    this.getUsers(this.pageNumber);
+    if(this.searchedByName){
+      this.searchByName(this.searchTerm)
+    }
+    else{
+      this.getUsers(this.pageNumber, this.pageSize);
+    }
   }
 }
