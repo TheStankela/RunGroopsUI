@@ -1,3 +1,3 @@
 export const environment = {
-    apiURL: 'http://rungroops.somee.com/api'
+    apiURL: 'https://rungroops.somee.com/api'
   };
