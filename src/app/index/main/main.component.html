@@ -13,7 +13,7 @@
         <div class="inset-0 mt-12 pt-36 pb-12 max-w-7xl mx-auto flex rounded-t-lg bg-gradient-to-t from-gray-900 to-[#000015]">
             <div class=" {{styles.paddingX}} pt-6 flex flex-col justify-center items-center text-center mx-auto ">
                 <h1 class="text-lg lg:text-xl xl:text-2xl 2xl:text-5xl text-white font-bold">Start building your own running community</h1>
-                    <a class="btn bg-app-green mt-12 text-white">Start a Club</a> 
+                    <a [routerLink]="['/clubs/create']" routerLinkActive="router-link-active"  class="btn bg-app-green mt-12 text-white">Start a Club</a> 
             </div>
         </div>
         <div class="inset-0 max-w-7xl mx-auto flex bg-gradient-to-r from-[#000015] via-gray-900 to-[#000015]">
@@ -24,7 +24,7 @@
         <div class="inset-0 mb-24 pt-24 pb-36 max-w-7xl mx-auto flex rounded-b-lg bg-gradient-to-b from-gray-900 to-[#000015]">
             <div class=" {{styles.paddingX}} pb-6 flex flex-col justify-center items-center text-center mx-auto ">
                 <h1 class="text-lg lg:text-xl xl:text-2xl 2xl:text-5xl text-white font-bold">Start your own competition</h1>
-                    <a class="btn bg-app-green mt-12 text-white">Create a Race</a> 
+                    <a [routerLink]="['/races/create']" routerLinkActive="router-link-active"  class="btn bg-app-green mt-12 text-white">Create a Race</a> 
             </div>
         </div>
     </div>
