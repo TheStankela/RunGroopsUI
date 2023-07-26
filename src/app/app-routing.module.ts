@@ -15,6 +15,7 @@ import { EditProfileComponent } from './account/edit-profile/edit-profile.compon
 import { DashboardComponent } from './account/dashboard/dashboard.component';
 import { UsersComponent } from './users/users/users.component';
 import { UserSingleComponent } from './users/user-single/user-single.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent},
@@ -37,6 +38,8 @@ const routes: Routes = [
 
   { path: 'users', component: UsersComponent},
   { path: 'users/:id', component: UserSingleComponent},
+
+  { path: 'notifications', component: NotificationsComponent},
 
 ];
 

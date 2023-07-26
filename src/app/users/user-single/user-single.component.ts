@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Address } from 'src/app/models/address';
 import { Club } from 'src/app/models/club';
 import { User } from 'src/app/models/user';
+import { FriendService } from 'src/app/services/friend.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class UserSingleComponent implements OnInit{
   @Output()
   userClubs: Club[] = [];
 
-  constructor(private route: ActivatedRoute, private userService: UserService, private router: Router) {
+  constructor(private route: ActivatedRoute, private userService: UserService, private router: Router, private friendService: FriendService) {
   }
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get('id');
@@ -38,6 +39,13 @@ export class UserSingleComponent implements OnInit{
     this.userService.getUserClubs(userId).subscribe({
       next: (res) => this.userClubs = res,
       error: (err) => console.log(err)
+    })
+  }
+  sendFriendRequest(userId: string){
+    this.friendService.sendFriendRequest(userId).subscribe({
+      next: (res) => {
+        console.log(res);
+      }
     })
   }
 }

@@ -39,6 +39,7 @@ import { UsersComponent } from './users/users/users.component';
 import { UserSingleComponent } from './users/user-single/user-single.component';
 import { NewsletterComponent } from './index/newsletter/newsletter.component';
 import { FooterComponent } from './footer/footer.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { FooterComponent } from './footer/footer.component';
     UsersComponent,
     NewsletterComponent,
     FooterComponent,
+    NotificationsComponent,
   ],
   imports: [
     BrowserModule,
