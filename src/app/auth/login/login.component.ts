@@ -20,11 +20,11 @@ export class LoginComponent {
     .subscribe({
       next: (res: any) => {
         this.toastrService.success('Welcome back!', 'Login successful!');
-         this.router.navigate(['/'])
+        this.authService.decodeToken();
+        this.router.navigate(['/'])
         },
       error: (err: any) =>{
         this.toastrService.error('Invalid credentials.', 'Login falied!');
-
       }
     });
   }
