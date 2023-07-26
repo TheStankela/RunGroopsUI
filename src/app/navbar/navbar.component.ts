@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { HttpHeaders } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent{
    constructor(public authService: AuthService, private toastrService: ToastrService, private router: Router){
 
    }
-
+  
    logout(){
     const token = localStorage.getItem('token');
     if(!token){
@@ -32,6 +32,4 @@ export class NavbarComponent {
       this.router.navigate(['/users/' + userId]);
     }
    }
-
-   hideNavbar( e: any ) { e.hide(); }
 }

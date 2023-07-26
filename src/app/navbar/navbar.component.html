@@ -27,8 +27,20 @@
         <li>
           <a [routerLink]="['/auth/register']" routerLinkActive="bg-gray-800" *ngIf="!authService.loggedIn()" class="block py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">Register</a>
         </li>
+        <li>
+          <a [routerLink]="['/notifications']" routerLinkActive="bg-gray-800" *ngIf="authService.loggedIn()" class="block py-2 px-2 rounded md:border-0 text-white hover:bg-gray-700">
+            <mat-icon>inbox</mat-icon>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/messages']" routerLinkActive="bg-gray-800"  *ngIf="authService.loggedIn()" class="block py-2 px-2 rounded md:border-0 text-white hover:bg-gray-700">
+            <mat-icon>message</mat-icon>
+          </a>
+        </li>
         <li *ngIf="authService.loggedIn()">
+          
           <div class="block z-50 py-2 pl-3 pr-4 rounded md:border-0 text-white hover:bg-gray-700">
+            
             <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" class="flex items-center font-medium text-white" type="button">
               <span class="sr-only">Open user menu</span>
               <img class="w-8 h-8 mr-2 rounded-full" src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=2000" alt="user photo">
@@ -42,6 +54,7 @@
               <div id="dropdownAvatarName" class="z-50 hidden divide-y rounded-lg shadow w-44 bg-gray-700 divide-gray-600">
                 <div class="px-4 py-3 text-sm text-white">
                   <div class="truncate">{{authService.currentUser.email}}</div>
+                  
                 </div>
                 <ul class="py-2 text-sm text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
                   <li>
